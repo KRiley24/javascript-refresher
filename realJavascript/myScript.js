@@ -1,4 +1,9 @@
 console.log("Hello")
-window.alert("Hi")
+// window.alert("Hi")
 
-console.log(document.getElementById("myPTag"))
+ let PTag = document.getElementById("myPTag")
+
+ function change(){
+     let firstName = document.getElementById("nameInput").value
+     PTag.innerHTML = "Hello " + firstName
+ }
