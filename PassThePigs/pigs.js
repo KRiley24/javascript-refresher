@@ -1,6 +1,6 @@
 let score = 0
 let turn = 0
-let playerID = document.getElementById('player' + turn)
+let playerID =('player' + turn)
 
 const pigs = ["yesDot", "noDot", "trotter", "razorBack", "snouter", "leaningJowler"]
 
@@ -33,10 +33,12 @@ function rollPigs() {
     return y
 }
 function rollTwoPigs() {
+    let playP1 = document.getElementById(playerID + "Pig1")
+    let playP2 = document.getElementById(playerID + "Pig2")
     let pig1 = rollPigs()
     let pig2 = rollPigs()
-    console.log(pig1)
-    console.log(pig2)
+    playP1.innerHTML = pig1
+    playP2.innerHTML = pig2
     scorePigs(pig1, pig2)
 }
 function passPigs() {
@@ -44,21 +46,29 @@ function passPigs() {
     changeBackground()
 }
 function changeBackground() {
-    playerID.setAttribute = ('class', 'w3-card w3-container w3-light-gray w3-round-large')
+    let playBG = document.getElementById(playerID)
+    playBG.setAttribute = ('class', 'w3-card w3-container w3-light-gray w3-round-large')
     if (turn == 3){
         turn = 0
     } else {
         turn++
     }
-    playerID.setAttribute = ('class', 'w3-card w3-container w3-dark-gray w3-round-large')
+    playBG.setAttribute = ('class', 'w3-card w3-container w3-dark-gray w3-round-large')
     console.log(turn)
 }
 function scorePigs(p1, p2){
     let scoreTurn = (playerID + "HandScore")
-    if (p2 == "trotter"){
-        score =+ 5
-    } else if (p1 == "trotter") {
-        score =+ 5
+    if (p2 == "yesDot" && p1 == "yesDot"){
+        score =+ 1
+    } 
+    if (p2 == "yesDot" && p1 == "noDot"){
+        score = 0
+    }
+    if (p1 == "yesDot" && p2 == "noDot"){
+        score = 0
+    }
+    if (p1 == "noDot" && p2 == "noDot"){
+        score =+ 1
     }
     scoreTurn.innerHTML = "Score: " + score
 }
