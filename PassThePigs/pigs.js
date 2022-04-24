@@ -2,7 +2,7 @@ let score = 0
 let turn = 0
 let playerID =('player' + turn)
 
-const pigs = ["yesDot", "noDot", "trotter", "razorBack", "snouter", "leaningJowler"]
+const pigs = ["Dot", "No Dot", "trotter", "razorBack", "snouter", "leaningJowler"]
 
 
 function handleClick(buttonId) {
@@ -53,22 +53,39 @@ function changeBackground() {
     } else {
         turn++
     }
-    playBG.setAttribute = ('class', 'w3-card w3-container w3-dark-gray w3-round-large')
+    playBG.setAttribute = ('class', 'w3-card w3-container w3-red w3-round-large')
     console.log(turn)
 }
 function scorePigs(p1, p2){
-    let scoreTurn = (playerID + "HandScore")
-    if (p2 == "yesDot" && p1 == "yesDot"){
+    let scoreTurn = document.getElementById(playerID + "HandScore")
+    if (p2 == "Dot" && p1 == "Dot"){
         score =+ 1
     } 
-    if (p2 == "yesDot" && p1 == "noDot"){
+    if (p2 == "Dot" && p1 == "No Dot"){
         score = 0
+        passPigs();
     }
-    if (p1 == "yesDot" && p2 == "noDot"){
+    if (p1 == "Dot" && p2 == "No Dot"){
         score = 0
+        passPigs();
     }
-    if (p1 == "noDot" && p2 == "noDot"){
-        score =+ 1
+    if (p1 == "No Dot" && p2 == "No Dot"){
+        score += 1
+    }
+    if (p1 == "trotter" && p2 == "trotter"){
+        score += 20
+    }
+    if (p1 == "razorBack" && p2 == "razorBack"){
+        score += 20
+    }
+    if (p1 == "snouter" && p2 == "snouter"){
+        score += 40
+    }
+    if (p1 == "leaningJowler" && p2 == "leaningJowler"){
+        score += 60
+    }
+    if (p1 == "trotter" && p2 == "No Dot"){
+        score += 5
     }
     scoreTurn.innerHTML = "Score: " + score
 }
