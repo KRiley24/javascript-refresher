@@ -42,6 +42,8 @@ function rollTwoPigs() {
     scorePigs(pig1, pig2)
 }
 function passPigs() {
+    let totalScore = document.getElementById(playerID + "TotalScore")
+    totalScore.innerHTML = "Total Score: " + score
     console.log("pass")
     changeBackground()
 }
@@ -59,35 +61,81 @@ function changeBackground() {
 function scorePigs(p1, p2){
     let scoreTurn = document.getElementById(playerID + "HandScore")
     if (p2 == "Dot" && p1 == "Dot"){
-        score =+ 1
+        score += 1
+        scoreTurn.innerHTML = "Score: " + score
     } 
     if (p2 == "Dot" && p1 == "No Dot"){
-        score = 0
-        passPigs();
+        pigOut();
     }
     if (p1 == "Dot" && p2 == "No Dot"){
-        score = 0
-        passPigs();
+        pigOut();
     }
     if (p1 == "No Dot" && p2 == "No Dot"){
         score += 1
+        scoreTurn.innerHTML = "Score: " + score
     }
     if (p1 == "trotter" && p2 == "trotter"){
         score += 20
+        scoreTurn.innerHTML = "Score: " + score
     }
     if (p1 == "razorBack" && p2 == "razorBack"){
         score += 20
+        scoreTurn.innerHTML = "Score: " + score
     }
     if (p1 == "snouter" && p2 == "snouter"){
         score += 40
+        scoreTurn.innerHTML = "Score: " + score
     }
     if (p1 == "leaningJowler" && p2 == "leaningJowler"){
         score += 60
+        scoreTurn.innerHTML = "Score: " + score
     }
     if (p1 == "trotter" && p2 == "No Dot"){
         score += 5
+        scoreTurn.innerHTML = "Score: " + score
     }
-    scoreTurn.innerHTML = "Score: " + score
+    if (p2 == "trotter" && p1 == "No Dot"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "trotter" && p1 == "Dot"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "trotter" && p2 == "Dot"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "trotter" && p1 == "snouter"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "trotter" && p2 == "snouter"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "trotter" && p1 == "leaningJowler"){
+        score += 20
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "trotter" && p2 == "leaningJowler"){
+        score += 20
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "trotter" && p1 == "razorBack"){
+        score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "trotter" && p2 == "razorBack"){
+        score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+}
+function pigOut() {
+    let scoreReset = document.getElementById(playerID + "HandScore")
+    scoreReset.innerHTML = "Pig Out!"
+    score = 0
+    passPigs();
 }
 function replay() {
     console.log("reset")
