@@ -53,9 +53,10 @@ function changeBackground() {
     if (turn == 3){
         turn = 0
     } else {
-        turn++
+        turn+= 1
     }
     playBG.setAttribute = ('class', 'w3-card w3-container w3-red w3-round-large')
+    console.log(playerID)
     console.log(turn)
 }
 function scorePigs(p1, p2){
@@ -128,6 +129,70 @@ function scorePigs(p1, p2){
     }
     if (p1 == "trotter" && p2 == "razorBack"){
         score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "Dot" && p2 == "razorBack"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "Dot" && p1 == "razorBack"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "Dot" && p2 == "snouter"){
+        score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "Dot" && p1 == "snouter"){
+        score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "Dot" && p2 == "leaningJowler"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "Dot" && p1 == "leaningJowler"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "No Dot" && p2 == "razorBack"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "No Dot" && p1 == "razorBack"){
+        score += 5
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "No Dot" && p2 == "snouter"){
+        score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "No Dot" && p1 == "snouter"){
+        score += 10
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "No Dot" && p2 == "leaningJowler"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "No Dot" && p1 == "leaningJowler"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "snouter" && p2 == "razorBack"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "snouter" && p1 == "razorBack"){
+        score += 15
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p1 == "snouter" && p2 == "leaningJowler"){
+        score += 25
+        scoreTurn.innerHTML = "Score: " + score
+    }
+    if (p2 == "snouter" && p1 == "leaningJowler"){
+        score += 25
         scoreTurn.innerHTML = "Score: " + score
     }
 }
